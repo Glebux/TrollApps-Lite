@@ -44,7 +44,7 @@ struct InstalledAppCell: View {
         .frame(maxWidth: .infinity)
         .contextMenu
         {
-            if(app.id != "com.opa334.TrollStore" && app.id != "com.opa334.TrollStoreLite" && app.id != Bundle.main.bundleIdentifier) {
+            if(app.id != "com.opa334.TrollStoreLite" && app.id != Bundle.main.bundleIdentifier) {
                 Button(action: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                         let uninstallIPAStatus = UninstallIPA(app.id)

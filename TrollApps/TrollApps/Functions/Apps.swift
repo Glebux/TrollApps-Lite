@@ -26,9 +26,8 @@ func GetApps() -> [BundledApp] {
         let appDict = NSDictionary(contentsOfFile: "\(app.bundleURL.path)/Info.plist")
         
         let parentDirectory = app.bundleURL.deletingLastPathComponent()
-        let filePath = parentDirectory.appendingPathComponent("_TrollStore")
-        let filePathLite = parentDirectory.appendingPathComponent("_TrollStoreLite")
-        let fileExists = FileManager.default.fileExists(atPath: filePath.path) ?? FileManager.default.fileExists(atPath: filePathLite.path)
+        let filePath = parentDirectory.appendingPathComponent("_TrollStoreLite")
+        let fileExists = FileManager.default.fileExists(atPath: filePath.path)
         
         let bundleID = (appDict?.value(forKey: "CFBundleIdentifier") ?? "Unknown") as! String
         

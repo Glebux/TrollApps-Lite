@@ -8,7 +8,7 @@
 import Combine
 
 func UninstallIPA(_ appID: String) -> FunctionStatus {
-    if let trollStoreApp = SBFApplication(applicationBundleIdentifier: "com.opa334.TrollStoreLite") ?? SBFApplication(applicationBundleIdentifier: "com.opa334.TrollStore") {
+    if let trollStoreApp = SBFApplication(applicationBundleIdentifier: "com.opa334.TrollStoreLite") {
         let trollstoreHelperPath = trollStoreApp.bundleURL.path + "/trollstorehelper"
         let returnCode = spawnRoot(trollstoreHelperPath, ["uninstall", appID])
         
