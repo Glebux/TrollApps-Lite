@@ -17,7 +17,7 @@ func InstallIPA(_ itemID: UUID, queueManager: QueueManager, completion: @escapin
     if !FileManager.default.fileExists(atPath: IPAPathURL.path) {
         completion(FunctionStatus(error: true, message: ErrorMessage(title: "FNF \(IPAPathURL.path)", body: "File does not exist")))
         return
-    } else if let trollStoreApp = SBFApplication(applicationBundleIdentifier: "com.opa334.TrollStore") {
+    } else if let trollStoreApp = SBFApplication(applicationBundleIdentifier: "com.opa334.TrollStore") ?? SBFApplication(applicationBundleIdentifier: "com.opa334.TrollStoreLite") {
         let trollstoreHelperPath = trollStoreApp.bundleURL.path + "/trollstorehelper"
         let returnCode = spawnRoot(trollstoreHelperPath, ["install", IPAPathURL.path])
         
